@@ -1,3 +1,6 @@
+
+# I believe this records the sequence of updates made
+# to the Sudoku puzzle during the solution
 assignments = []
 
 def assign_value(values, box, value):
