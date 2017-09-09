@@ -21,7 +21,7 @@ def play(values_list):
     # The puzzleNumber sets a seed so either generate
     # a random number to fill in here or accept user
     # input for a duplicatable puzzle.
-
+    nudge = 0
     for values in values_list:
         pygame.event.pump()
         theSquares = []
@@ -30,18 +30,19 @@ def play(values_list):
         startX, startY, editable, number = 0, 0, "N", 0
         for y in range(9):
             for x in range(9):
-                if x in (0, 1, 2):  startX = (x * 57) + 38
-                if x in (3, 4, 5):  startX = (x * 57) + 99
-                if x in (6, 7, 8):  startX = (x * 57) + 159
+                if x in (0, 1, 2):  startX = (x * 57) + 38 
+                if x in (3, 4, 5):  startX = (x * 57) + 99 
+                if x in (6, 7, 8):  startX = (x * 57) + 159 - nudge
 
-                if y in (0, 1, 2):  startY = (y * 57) + 35
-                if y in (3, 4, 5):  startY = (y * 57) + 100
-                if y in (6, 7, 8):  startY = (y * 57) + 165
+                if y in (0, 1, 2):  startY = (y * 57) + 35 
+                if y in (3, 4, 5):  startY = (y * 57) + 100 
+                if y in (6, 7, 8):  startY = (y * 57) + 165 + nudge
                 col = digits[x]
                 row = rows[y]
                 string_number = values[row + col]
-                if len(string_number) > 1 or string_number == '' or string_number == '.':
-                    number = None
+                #if len(string_number) > 1 or string_number == '' or string_number == '.':
+                if string_number == '' or string_number == '.':
+                    number = '.'
                 else:
                     number = int(string_number)
                 theSquares.append(SudokuSquare.SudokuSquare(number, startX, startY, editable, x, y))

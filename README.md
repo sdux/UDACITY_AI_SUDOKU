@@ -3,11 +3,14 @@
 
 # Question 1 (Naked Twins)
 Q: How do we use constraint propagation to solve the naked twins problem?  
-A: *Student should provide answer here*
+A:
+The challenge is addressed with nested for loops.  The outer loop goes through each unit, the inner loop cycles through each box within the unit.  On the first pass boxes with matching twin values are identified, twin boxes are restricted to those with maximum of 2 values.  The twin box IDs and values are then stored in separate lists to constrain the elimination of digits within the non-twin boxes.  Editing of box values is restricted to non-twin boxes and boxes with greater than 1 digit.
+
+
 
 # Question 2 (Diagonal Sudoku)
 Q: How do we use constraint propagation to solve the diagonal sudoku problem?  
-A: *Student should provide answer here*
+A: The diagonals represent 9 box units wich should be considered similarly to the other units.  To add this contraint to the sudoku problem, the diagonal boxes are added to units and appended to the unitlist values along with the row and column units.
 
 ### Install
 
